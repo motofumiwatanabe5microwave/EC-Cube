@@ -72,8 +72,7 @@ class PasswordEncoder implements PasswordEncoderInterface
         } else {
             // 旧バージョン(2.11未満)からの移行を考慮
             if (empty($salt)) {
-                // $hash = sha1($raw.':'.$this->auth_magic);
-                $hash = sha1($raw.":"."<undefined>");
+                $hash = sha1($raw.':'.$this->auth_magic);
             } else {
                 $hash = $this->encodePassword($raw, $salt);
             }
