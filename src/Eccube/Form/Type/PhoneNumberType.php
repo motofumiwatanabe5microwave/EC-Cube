@@ -47,7 +47,7 @@ class PhoneNumberType extends AbstractType
     {
         // 全角英数を事前に半角にする
         $builder->addEventSubscriber(new \Eccube\Form\EventListener\ConvertKanaListener());
-        $builder->addEventSubscriber(new \Eccube\Form\EventListener\TruncateHyphenListener());
+        // $builder->addEventSubscriber(new \Eccube\Form\EventListener\TruncateHyphenListener());
     }
 
     /**
@@ -66,9 +66,9 @@ class PhoneNumberType extends AbstractType
                 'max' => $this->eccubeConfig['eccube_tel_len_max'],
             ]);
 
-            $constraints[] = new Assert\Type([
-                'type' => 'digit',
-                'message' => 'form_error.numeric_only',
+            $constraints[] = new Assert\Regex([
+                'pattern' => '/^\d{2,4}-\d{2,4}-\d{2,4}|\d{10,14}$/',
+                'message' => '数字とハイフンで入力してください',
             ]);
 
             return array_merge($constraints, $value);
