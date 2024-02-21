@@ -8,7 +8,7 @@ parameters:
     env(ECCUBE_ADMIN_DENY_HOSTS): '[]'
     env(ECCUBE_FORCE_SSL): '0'
     env(ECCUBE_TEMPLATE_CODE): 'default'
-    env(ECCUBE_AUTH_MAGIC): '<change.me>'
+    env(ECCUBE_AUTH_MAGIC): '<undefined>'
     env(ECCUBE_COOKIE_NAME): 'eccube'
     env(ECCUBE_COOKIE_PATH): '/'
     env(ECCUBE_COOKIE_LIFETIME): '0'
