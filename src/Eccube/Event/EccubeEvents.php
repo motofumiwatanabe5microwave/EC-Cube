@@ -424,6 +424,11 @@ final class EccubeEvents
     public const FRONT_MYPAGE_MYPAGE_DELETE_INITIALIZE = 'front.mypage.mypage.delete.initialize';
     public const FRONT_MYPAGE_MYPAGE_DELETE_COMPLETE = 'front.mypage.mypage.delete.complete';
 
+    // resetting
+    // feature-001 ログイン時旧パスワード再設定
+    public const FRONT_MYPAGE_MYPAGE_RESETTING_INITIALIZE = 'front.mypage.mypage.resetting.initialize';
+    public const FRONT_MYPAGE_MYPAGE_RESETTING_COMPLETE = 'front.mypage.mypage.resetting.complete';
+
     /**
      * Mypage/WithdrawController
      */
