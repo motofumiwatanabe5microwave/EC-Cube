@@ -37,6 +37,6 @@ class AbstractFrontCustomizeController extends AbstractShoppingController
      */
     protected function setPasswordResetting()
     {
-        return $this->redirect($this->generateUrl('homepage'), 302);
+        return $this->redirect($this->generateUrl('mypage_resetting'), 302);
     }
 }

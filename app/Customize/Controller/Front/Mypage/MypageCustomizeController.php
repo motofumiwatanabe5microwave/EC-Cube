@@ -384,6 +384,10 @@ class MypageCustomizeController extends AbstractFrontCustomizeController
      */
     public function resetting(Request $request)
     {
+        if (self::isCustomerSalt()) {
+            return $this->redirect($this->generateUrl('mypage'));
+        }
+
         /** @var Customer $Customer */
         $Customer = $this->getUser();
         $Customer->setPlainPassword($this->eccubeConfig['eccube_default_password']);
@@ -446,6 +450,11 @@ class MypageCustomizeController extends AbstractFrontCustomizeController
      */
     public function completeResetting(Request $request)
     {
+        if (!self::isCustomerSalt()) {
+            log_info('パスワード再設定');
+            return self::setPasswordResetting();
+        }
+                
         return [];
     }
 }
