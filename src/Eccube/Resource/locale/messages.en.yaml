@@ -231,6 +231,8 @@ front.mypage.nav__favorite: Favorites
 front.mypage.nav__customer: Edit Customer Information
 front.mypage.nav__customer_complete: Edit Customer Information (Completed)
 front.mypage.nav__customer_address: Shipping Addresses
+front.mypage.nav__resetting: Password Resetting
+front.mypage.nav__resetting_complete: Password Resetting (Completed)
 front.mypage.nav__withdrow: Cancel Membership
 front.mypage.history_count: 'You have %count% item(s) in the order history.'
 front.mypage.history_not_found: No order history found.
@@ -256,6 +258,8 @@ front.mypage.mail_not_found: No email found.
 front.mypage.mail_list: Email History
 front.mypage.customer_complete_message__title: Customer information has been updated
 front.mypage.customer_complete_message__body: Please continue your shopping!
+front.mypage.resetting_complete_message__title: Password has been updated
+front.mypage.resetting_complete_message__body: Please continue your shopping!
 front.mypage.favorite_count: '%count% item(s) found in Favorites'
 front.mypage.favorite_not_found: No item found in Favorites.
 front.mypage.customer_address_count: '%count% items are registered in Delivery Addresses'
