@@ -46,7 +46,7 @@ class PostalType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->addEventSubscriber(new \Eccube\Form\EventListener\ConvertKanaListener());
-        // $builder->addEventSubscriber(new \Eccube\Form\EventListener\TruncateHyphenListener());
+        $builder->addEventSubscriber(new \Eccube\Form\EventListener\TruncateHyphenListener());
     }
 
     /**
@@ -65,9 +65,9 @@ class PostalType extends AbstractType
                 'max' => $this->eccubeConfig['eccube_postal_code'],
             ]);
 
-            $constraints[] = new Assert\Regex([
-                'pattern' => '/^\d{3}-\d{4}$/',
-                'message' => '数字とハイフンで入力してください',
+            $constraints[] = new Assert\Type([
+                'type' => 'digit',
+                'message' => 'form_error.numeric_only',
             ]);
 
             return array_merge($constraints, $value);
