@@ -105,6 +105,7 @@ if (!class_exists('\Eccube\Entity\Customer')) {
 
         /**
          * @var string|null
+         * feature-002 電話番号設定変更
          *
          * @ORM\Column(name="phone_number", type="string", length=14, nullable=true)
          */
@@ -570,6 +571,7 @@ if (!class_exists('\Eccube\Entity\Customer')) {
 
         /**
          * Set phone_number.
+         * feature-002 電話番号設定変更
          *
          * @param string|null $phone_number
          *
@@ -584,6 +586,7 @@ if (!class_exists('\Eccube\Entity\Customer')) {
 
         /**
          * Get phone_number.
+         * feature-002 電話番号設定変更
          *
          * @return string|null
          */
