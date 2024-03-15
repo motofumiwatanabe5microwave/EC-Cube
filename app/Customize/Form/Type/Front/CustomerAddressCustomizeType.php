@@ -2,18 +2,12 @@
 namespace Customize\Form\Type\Front;
 
 use Eccube\Common\EccubeConfig;
-use Eccube\Form\Type\AddressType;
-use Eccube\Form\Type\KanaType;
-use Eccube\Form\Type\NameType;
 use Eccube\Form\Type\PhoneNumberType;
-use Eccube\Form\Type\PostalType;
-use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Eccube\Form\Type\Front\CustomerAddressType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Form\AbstractTypeExtension;
 
-class CustomerAddressCustomizeType extends AbstractType
+class CustomerAddressCustomizeType extends AbstractTypeExtension
 {
     /**
      * @var EccubeConfig
@@ -21,6 +15,8 @@ class CustomerAddressCustomizeType extends AbstractType
     protected $eccubeConfig;
 
     /**
+     * OrderType constructor.
+     *
      * @param EccubeConfig $eccubeConfig
      */
     public function __construct(EccubeConfig $eccubeConfig)
@@ -28,49 +24,32 @@ class CustomerAddressCustomizeType extends AbstractType
         $this->eccubeConfig = $eccubeConfig;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
-            ->add('name', NameType::class, [
-                'required' => true,
-            ])
-            ->add('kana', KanaType::class, [
-                'required' => true,
-            ])
-            ->add('company_name', TextType::class, [
-                'required' => false,
-                'constraints' => [
-                    new Assert\Length([
-                        'max' => $this->eccubeConfig['eccube_stext_len'],
-                    ]),
-                ],
-            ])
-            ->add('postal_code', PostalType::class)
-            ->add('address', AddressType::class)
-            // feature-002 電話番号設定変更
-            ->add('phone_number', PhoneNumberType::class, [
-                'required' => true,
-            ]);
+        // feature-002 電話番号設定変更
+        // $builder->add('phone_number01', PhoneNumberType::class, [
+        //         'required' => true,
+        // ])->add('phone_number02', PhoneNumberType::class, [
+        //     'required' => true,
+        // ])->add('phone_number03', PhoneNumberType::class, [
+        //     'required' => true,
+        // ])
+        // ->remove('phone_number');
     }
 
     /**
      * {@inheritdoc}
      */
-    public function configureOptions(OptionsResolver $resolver)
+    public function getExtendedType()
     {
-        $resolver->setDefaults([
-            'data_class' => 'Eccube\Entity\CustomerAddress',
-        ]);
+         return CustomerAddressType::class;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getBlockPrefix()
+    public static function getExtendedTypes(): iterable
     {
-        return 'customer_address';
+        yield CustomerAddressType::class;
     }
 }

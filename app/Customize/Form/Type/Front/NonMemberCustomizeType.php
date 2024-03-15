@@ -2,18 +2,12 @@
 namespace Customize\Form\Type\Front;
 
 use Eccube\Common\EccubeConfig;
-use Eccube\Form\Type\AddressType;
-use Eccube\Form\Type\KanaType;
-use Eccube\Form\Type\NameType;
 use Eccube\Form\Type\PhoneNumberType;
-use Eccube\Form\Type\PostalType;
-use Eccube\Form\Type\RepeatedEmailType;
-use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Eccube\Form\Type\Front\NonMemberType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Form\AbstractTypeExtension;
 
-class NonMemberCustomizeType extends AbstractType
+class NonMemberCustomizeType extends AbstractTypeExtension
 {
     /**
      * @var EccubeConfig
@@ -21,7 +15,7 @@ class NonMemberCustomizeType extends AbstractType
     protected $eccubeConfig;
 
     /**
-     * NonMemberType constructor.
+     * OrderType constructor.
      *
      * @param EccubeConfig $eccubeConfig
      */
@@ -30,44 +24,32 @@ class NonMemberCustomizeType extends AbstractType
         $this->eccubeConfig = $eccubeConfig;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
-            ->add('name', NameType::class, [
-                'required' => true,
-            ])
-            ->add('kana', KanaType::class, [
-                'required' => true,
-            ])
-            ->add('company_name', TextType::class, [
-                'required' => false,
-                'constraints' => [
-                    new Assert\Length([
-                        'max' => $this->eccubeConfig['eccube_stext_len'],
-                    ]),
-                ],
-            ])
-            ->add('postal_code', PostalType::class, [
-                'required' => true,
-            ])
-            ->add('address', AddressType::class, [
-                'required' => true,
-            ])
-            // feature-002 電話番号設定変更
-            ->add('phone_number', PhoneNumberType::class, [
-                'required' => true,
-            ])
-            ->add('email', RepeatedEmailType::class);
+        // feature-002 電話番号設定変更
+        // $builder->add('phone_number01', PhoneNumberType::class, [
+        //         'required' => true,
+        // ])->add('phone_number02', PhoneNumberType::class, [
+        //     'required' => true,
+        // ])->add('phone_number03', PhoneNumberType::class, [
+        //     'required' => true,
+        // ])
+        // ->remove('phone_number');
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getBlockPrefix()
+    public function getExtendedType()
     {
-        return 'nonmember';
+         return NonMemberType::class;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public static function getExtendedTypes(): iterable
+    {
+        yield NonMemberType::class;
     }
 }

@@ -2,27 +2,12 @@
 namespace Customize\Form\Type\Admin;
 
 use Eccube\Common\EccubeConfig;
-use Eccube\Form\EventListener\ConvertKanaListener;
-use Eccube\Form\Type\AddressType;
 use Eccube\Form\Type\PhoneNumberType;
-use Eccube\Form\Type\PostalType;
-use Eccube\Form\Type\PriceType;
-use Eccube\Form\Type\ToggleSwitchType;
-use Eccube\Form\Validator\Email;
-use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\EmailType;
-use Symfony\Component\Form\Extension\Core\Type\IntegerType;
-use Symfony\Component\Form\Extension\Core\Type\NumberType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Eccube\Form\Type\Admin\ShopMasterType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Form\AbstractTypeExtension;
 
-/**
- * Class ShopMasterType
- */
-class ShopMasterCustomizeType extends AbstractType
+class ShopMasterCustomizeType extends AbstractTypeExtension
 {
     /**
      * @var EccubeConfig
@@ -30,7 +15,7 @@ class ShopMasterCustomizeType extends AbstractType
     protected $eccubeConfig;
 
     /**
-     * ShopMasterType constructor.
+     * OrderType constructor.
      *
      * @param EccubeConfig $eccubeConfig
      */
@@ -39,217 +24,32 @@ class ShopMasterCustomizeType extends AbstractType
         $this->eccubeConfig = $eccubeConfig;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
-            ->add('company_name', TextType::class, [
-                'required' => false,
-                'constraints' => [
-                    new Assert\Length([
-                        'max' => $this->eccubeConfig['eccube_stext_len'],
-                    ]),
-                ],
-            ])
-            ->add('shop_name', TextType::class, [
-                'required' => true,
-                'constraints' => [
-                    new Assert\NotBlank(),
-                    new Assert\Length([
-                        'max' => $this->eccubeConfig['eccube_stext_len'],
-                    ]),
-                ],
-            ])
-            ->add('shop_name_eng', TextType::class, [
-                'required' => false,
-                'constraints' => [
-                    new Assert\Length([
-                        'max' => $this->eccubeConfig['eccube_mtext_len'],
-                    ]),
-                    new Assert\Regex([
-                        'pattern' => '/^[[:graph:][:space:]]+$/i',
-                    ]),
-                ],
-            ])
-            ->add('postal_code', PostalType::class, [
-                'required' => false,
-            ])
-            ->add('address', AddressType::class, [
-                'required' => false,
-            ])
-            // feature-002 電話番号設定変更
-            ->add('phone_number', PhoneNumberType::class, [
-                'required' => false,
-            ])
-            ->add('business_hour', TextType::class, [
-                'required' => false,
-                'constraints' => [
-                    new Assert\Length([
-                        'max' => $this->eccubeConfig['eccube_stext_len'],
-                    ]),
-                ],
-            ])
-            ->add('email01', EmailType::class, [
-                'required' => false,
-                'constraints' => [
-                    new Assert\NotBlank(),
-                    new Email(null, null, $this->eccubeConfig['eccube_rfc_email_check'] ? 'strict' : null),
-                ],
-            ])
-            ->add('email02', EmailType::class, [
-                'required' => false,
-                'constraints' => [
-                    new Assert\NotBlank(),
-                    new Email(null, null, $this->eccubeConfig['eccube_rfc_email_check'] ? 'strict' : null),
-                ],
-            ])
-            ->add('email03', EmailType::class, [
-                'required' => false,
-                'constraints' => [
-                    new Assert\NotBlank(),
-                    new Email(null, null, $this->eccubeConfig['eccube_rfc_email_check'] ? 'strict' : null),
-                ],
-            ])
-            ->add('email04', EmailType::class, [
-                'required' => false,
-                'constraints' => [
-                    new Assert\NotBlank(),
-                    new Email(null, null, $this->eccubeConfig['eccube_rfc_email_check'] ? 'strict' : null),
-                ],
-            ])
-            ->add('good_traded', TextareaType::class, [
-                'required' => false,
-                'constraints' => [
-                    new Assert\Length([
-                        'max' => $this->eccubeConfig['eccube_ltext_len'],
-                    ]),
-                ],
-            ])
-            ->add('message', TextareaType::class, [
-                'required' => false,
-                'constraints' => [
-                    new Assert\Length([
-                        'max' => $this->eccubeConfig['eccube_ltext_len'],
-                    ]),
-                ],
-            ])
-            // 送料設定
-            ->add('delivery_free_amount', PriceType::class, [
-                'required' => false,
-            ])
-
-            ->add('delivery_free_quantity', IntegerType::class, [
-                'required' => false,
-                'constraints' => [
-                    new Assert\Regex([
-                        'pattern' => "/^\d+$/u",
-                        'message' => 'form_error.numeric_only',
-                    ]),
-                ],
-            ])
-            ->add('option_product_delivery_fee', ToggleSwitchType::class)
-            // 会員設定
-            ->add('option_customer_activate', ToggleSwitchType::class)
-            // マイページに注文状況を表示する
-            ->add('option_mypage_order_status_display', ToggleSwitchType::class)
-            // 自動ログイン
-            ->add('option_remember_me', ToggleSwitchType::class)
-            // 会員の重要操作時にメールを通知する
-            ->add('option_mail_notifier', ToggleSwitchType::class)
-            // お気に入り商品設定
-            ->add('option_favorite_product', ToggleSwitchType::class)
-            // 在庫切れ商品を非表示にする
-            ->add('option_nostock_hidden', ToggleSwitchType::class)
-            // 適格請求書発行事業者登録番号
-            ->add('invoice_registration_number', TextType::class, [
-                'required' => false,
-                'constraints' => [
-                    new Assert\Length([
-                        'max' => $this->eccubeConfig['eccube_stext_len'],
-                    ]),
-                ],
-            ])
-            // 個別税率設定
-            ->add('option_product_tax_rule', ToggleSwitchType::class)
-            // ポイント設定
-            ->add('option_point', ToggleSwitchType::class)
-            ->add('basic_point_rate', NumberType::class, [
-                'required' => false,
-                'constraints' => [
-                    new Assert\Regex([
-                        'pattern' => "/^\d+$/u",
-                        'message' => 'form_error.numeric_only',
-                    ]),
-                    new Assert\Range([
-                        'min' => 0,
-                        'max' => 100,
-                    ]),
-                ],
-            ])
-            ->add('point_conversion_rate', NumberType::class, [
-                'required' => false,
-                'constraints' => [
-                    new Assert\Regex([
-                        'pattern' => "/^\d+$/u",
-                        'message' => 'form_error.numeric_only',
-                    ]),
-                    new Assert\Range([
-                        'min' => 1,
-                        'max' => 100,
-                    ]),
-                ],
-            ]);
-
-        $builder->add(
-            $builder
-                ->create('company_kana', TextType::class, [
-                    'required' => false,
-                    'constraints' => [
-                        new Assert\Regex([
-                            'pattern' => '/^[ァ-ヶｦ-ﾟー]+$/u',
-                        ]),
-                        new Assert\Length([
-                            'max' => $this->eccubeConfig['eccube_stext_len'],
-                        ]),
-                    ],
-                ])
-                ->addEventSubscriber(new ConvertKanaListener('CV'))
-        );
-
-        $builder->add(
-            $builder
-                ->create('shop_kana', TextType::class, [
-                    'required' => false,
-                    'constraints' => [
-                        new Assert\Length([
-                            'max' => $this->eccubeConfig['eccube_stext_len'],
-                        ]),
-                        new Assert\Regex([
-                            'pattern' => '/^[ァ-ヶｦ-ﾟー]+$/u',
-                        ]),
-                    ],
-                ])
-                ->addEventSubscriber(new ConvertKanaListener('CV'))
-        );
+        // feature-002 電話番号設定変更
+        // $builder->add('phone_number01', PhoneNumberType::class, [
+        //         'required' => true,
+        // ])->add('phone_number02', PhoneNumberType::class, [
+        //     'required' => true,
+        // ])->add('phone_number03', PhoneNumberType::class, [
+        //     'required' => true,
+        // ])
+        // ->remove('phone_number');
     }
 
     /**
      * {@inheritdoc}
      */
-    public function configureOptions(OptionsResolver $resolver)
+    public function getExtendedType()
     {
-        $resolver->setDefaults([
-            'data_class' => \Eccube\Entity\BaseInfo::class,
-        ]);
+         return ShopMasterType::class;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getBlockPrefix()
+    public static function getExtendedTypes(): iterable
     {
-        return 'shop_master';
+        yield ShopMasterType::class;
     }
 }
