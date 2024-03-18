@@ -40,7 +40,7 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
  * @author     m.watanabe
  * @version    1.0.0
  */
-class ShoppingCustomizeController extends AbstractFrontCustomizeController
+class ShoppingCustomizeController extends AbstractShoppingCustomizeController
 {
     /**
      * @var CartService
