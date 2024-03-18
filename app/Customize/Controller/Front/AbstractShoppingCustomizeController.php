@@ -1,16 +1,16 @@
 <?php
 namespace Customize\Controller\Front;
 
-use Eccube\Controller\AbstractController;
+use Eccube\Controller\AbstractShoppingController;
 
 /**
- * Front用 継承コントローラー
+ * Front用 Shopping継承コントローラー
  *
  * @category   Front
  * @author     m.watanabe
  * @version    1.0.0
  */
-class AbstractFrontCustomizeController extends AbstractController
+class AbstractShoppingCustomizeController extends AbstractShoppingController
 {
     /**
      * ハッシュ用Salt存在確認(旧パスワード形式確認)
