@@ -40,12 +40,12 @@
                 {% endif %}
 
                 {# feature-002 電話番号設定変更 #}
-                {% if BaseInfo.phone_number|default is not empty %}
+                {% if BaseInfo.phone_number01|default is not empty %}
                     <dl id="help_about_box__phone_number">
                         <dt>
                             <label class="ec-label">{{ 'common.phone_number'|trans }}</label>
                         </dt>
-                        <dd>{{ BaseInfo.phone_number }}</dd>
+                        <dd>{{ BaseInfo.phone_number01 }} - {{ BaseInfo.phone_number02 }} - {{ BaseInfo.phone_number03 }}</dd>
                     </dl>
                 {% endif %}
 

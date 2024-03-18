@@ -160,7 +160,7 @@
                         <p class="ec-zipInput">〒<span class="customer-edit customer-postal_code">{{ Order.postal_code }}</span></p>
                         <p class="ec-input"><span class="customer-edit customer-pref">{{ Order.pref }}</span><span class="customer-edit customer-addr01">{{ Order.addr01 }}</span><span class="customer-edit customer-addr02">{{ Order.addr02 }}</span></p>
                         {# feature-002 電話番号設定変更 #}
-                        <p class="ec-telInput"><span class="customer-edit customer-phone_number">{{ Order.phone_number }}</span></p>
+                        <p class="ec-telInput"><span class="customer-edit customer-phone_number">{{ Order.phone_number01 }} - {{ Order.phone_number02 }} - {{ Order.phone_number03 }}</span></p>
                         <p class="ec-input"><span class="customer-edit customer-email">{{ Order.email }}</span></p>
                     </div>
                     {% if is_granted('ROLE_USER') == false %}
@@ -267,7 +267,9 @@
                         <input type="hidden" id="customer-addr01" class="customer-in" name="customer_addr01" value="{{ Order.addr01 }}">
                         <input type="hidden" id="customer-addr02" class="customer-in" name="customer_addr02" value="{{ Order.addr02 }}">
                         {# feature-002 電話番号設定変更 #}
-                        <input type="hidden" id="customer-phone_number" class="customer-in" name="customer_phone_number" value="{{ Order.phone_number }}">
+                        <input type="hidden" id="customer-phone_number" class="customer-in" name="customer_phone_number01" value="{{ Order.phone_number01 }}">
+                        <input type="hidden" id="customer-phone_number" class="customer-in" name="customer_phone_number02" value="{{ Order.phone_number02 }}">
+                        <input type="hidden" id="customer-phone_number" class="customer-in" name="customer_phone_number03" value="{{ Order.phone_number03 }}">
                         <input type="hidden" id="customer-email" class="customer-in" name="customer_email" value="{{ Order.email }}">
                     {% endif %}
                 </div>
@@ -313,7 +315,7 @@
                             <p>{{ 'common.name.prefix'|trans }}{{ shipping.name01 }} {{ shipping.name02 }} ({{ shipping.kana01 }} {{ shipping.kana02 }}){{ 'common.name.suffix'|trans }}</p>
                             <p>{{ 'common.postal_symbol'|trans }}{{ shipping.postal_code }} {{ shipping.pref }}{{ shipping.addr01 }}{{ shipping.addr02 }}</p>
                             {# feature-002 電話番号設定変更 #}
-                            <p>{{ shipping.phone_number }}</p>
+                            <p>{{ shipping.phone_number01 }} - {{ shipping.phone_number02 }} - {{ shipping.phone_number03 }}</p>
                         </div>
                         <div class="ec-orderDelivery__actions">
                             <div class="ec-selects">

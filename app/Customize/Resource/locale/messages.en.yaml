@@ -5,6 +5,6 @@
 #====================================================================================
 # ADD
 #====================================================================================
-common.phone_number_sample1: e.g. 111
-common.phone_number_sample2: 2222
-common.phone_number_sample3: 3333
+common.phone_number_sample01: e.g. 111
+common.phone_number_sample02: 2222
+common.phone_number_sample03: 3333

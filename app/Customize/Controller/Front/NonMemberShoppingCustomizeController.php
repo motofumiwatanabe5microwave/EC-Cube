@@ -105,7 +105,9 @@ class NonMemberShoppingCustomizeController extends AbstractFrontCustomizeControl
                 ->setKana02($data['customer_kana02'])
                 ->setCompanyName($data['customer_company_name'])
                 // feature-002 電話番号設定変更
-                ->setPhoneNumber($data['customer_phone_number'])
+                ->setPhoneNumber01($data['customer_phone_number01'])
+                ->setPhoneNumber02($data['customer_phone_number02'])
+                ->setPhoneNumber03($data['customer_phone_number03'])
                 ->setPostalCode($data['customer_postal_code'])
                 ->setPref($pref)
                 ->setAddr01($data['customer_addr01'])
@@ -121,7 +123,9 @@ class NonMemberShoppingCustomizeController extends AbstractFrontCustomizeControl
                 'kana02' => $data['customer_kana02'],
                 'company_name' => $data['customer_company_name'],
                 // feature-002 電話番号設定変更
-                'phone_number' => $data['customer_phone_number'],
+                'phone_number01' => $data['customer_phone_number01'],
+                'phone_number02' => $data['customer_phone_number02'],
+                'phone_number03' => $data['customer_phone_number03'],
                 'postal_code' => $data['customer_postal_code'],
                 'pref' => $pref,
                 'addr01' => $data['customer_addr01'],
@@ -211,7 +215,27 @@ class NonMemberShoppingCustomizeController extends AbstractFrontCustomizeControl
 
         // feature-002 電話番号設定変更
         $errors[] = $this->validator->validate(
-            $data['customer_phone_number'],
+            $data['customer_phone_number01'],
+            [
+                new Assert\NotBlank(),
+                new Assert\Type(['type' => 'digit', 'message' => 'form_error.numeric_only']),
+                new Assert\Length(
+                    ['max' => $this->eccubeConfig['eccube_tel_len_max']]
+                ),
+            ]
+        );
+        $errors[] = $this->validator->validate(
+            $data['customer_phone_number02'],
+            [
+                new Assert\NotBlank(),
+                new Assert\Type(['type' => 'digit', 'message' => 'form_error.numeric_only']),
+                new Assert\Length(
+                    ['max' => $this->eccubeConfig['eccube_tel_len_max']]
+                ),
+            ]
+        );
+        $errors[] = $this->validator->validate(
+            $data['customer_phone_number03'],
             [
                 new Assert\NotBlank(),
                 new Assert\Type(['type' => 'digit', 'message' => 'form_error.numeric_only']),

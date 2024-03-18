@@ -162,9 +162,17 @@
                                         <span class="badge bg-primary ms-1">{{ 'admin.common.required'|trans }}</span>
                                     </div>
                                     <div class="col">
-                                    {# feature-002 電話番号設定変更 #}
-                                        {{ form_widget(form.phone_number) }}
-                                        {{ form_errors(form.phone_number) }}
+                                        {# feature-002 電話番号設定変更 #}
+                                        <div class="form-phonenumbers">
+                                        {{ form_widget(form.phone_number01, { attr : { placeholder : 'common.phone_number_sample01' }} ) }} -
+                                        {{ form_widget(form.phone_number02, { attr : { placeholder : 'common.phone_number_sample02' }} ) }} -
+                                        {{ form_widget(form.phone_number03, { attr : { placeholder : 'common.phone_number_sample03' }} ) }}
+                                        </div>
+                                        <div class="error-contents">
+                                        {{ form_errors(form.phone_number01) }}
+                                        {{ form_errors(form.phone_number02) }}
+                                        {{ form_errors(form.phone_number03) }}
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="row mb-2">
@@ -290,7 +298,10 @@
                                                     </td>
                                                     <td class="align-middle">
                                                     {# feature-002 電話番号設定変更 #}
-                                                        {{ CustomerAddress.phone_number }}
+                                                        {# {{ CustomerAddress.phone_number }} #}
+                                                        {{ CustomerAddress.phone_number01 }} -
+                                                        {{ CustomerAddress.phone_number02 }} -
+                                                        {{ CustomerAddress.phone_number03 }}
                                                     </td>
                                                     <td>
                                                         <div class="text-center" data-bs-toggle="tooltip" data-bs-placement="top" title="{{ 'admin.common.delete'|trans }}">

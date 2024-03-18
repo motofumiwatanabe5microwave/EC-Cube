@@ -46,7 +46,7 @@
                                         <div>{{ CustomerAddress.name01 }}&nbsp;{{ CustomerAddress.name02 }}</div>
                                         <div>{{ 'common.postal_symbol'|trans }}{{ CustomerAddress.postal_code }} {{ CustomerAddress.Pref }}{{ CustomerAddress.addr01 }}{{ CustomerAddress.addr02 }}</div>
                                         {# feature-002 電話番号設定変更 #}
-                                        <div>{{ CustomerAddress.phone_number }}</div>
+                                        <div>{{ CustomerAddress.phone_number01 }} - {{ CustomerAddress.phone_number02 }} - {{ CustomerAddress.phone_number03 }}</div>
                                     </div>
                                     <div class="ec-addressList__action">
                                         <a class="ec-inlineBtn" href="{{ url('mypage_delivery_edit', { id : CustomerAddress.id }) }}">{{ 'common.change'|trans }}</a>

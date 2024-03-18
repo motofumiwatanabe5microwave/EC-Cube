@@ -64,13 +64,15 @@
                             </dd>
                         </dl>
                         <dl>
-                            <dt>
                             {# feature-002 電話番号設定変更 #}
-                                {{ form_label(form.phone_number, 'common.phone_number', { 'label_attr': { 'class': 'ec-label' }}) }}
+                            <dt>
+                                {{ form_label(form.phone_number01, 'common.phone_number', { 'label_attr': { 'class': 'ec-label' }}) }}
                             </dt>
-                            <dd>{{ form.phone_number.vars.data }}
-                                {{ form_widget(form.phone_number, { type : 'hidden' }) }}
-                            </dd>
+                            <dd>{{ form.phone_number01.vars.data }} - {{ form.phone_number02.vars.data }} - {{ form.phone_number03.vars.data }}
+                                {{ form_widget(form.phone_number01, { type : 'hidden' }) }}
+                                {{ form_widget(form.phone_number02, { type : 'hidden' }) }}
+                                {{ form_widget(form.phone_number03, { type : 'hidden' }) }}
+                            </dd>                            
                         </dl>
                         <dl>
                             <dt>

@@ -81,12 +81,21 @@
                         <dl>
                             <dt>
                             {# feature-002 電話番号設定変更 #}
-                                {{ form_label(form.phone_number, 'common.phone_number', { 'label_attr': { 'class': 'ec-label' }}) }}
+                                {{ form_label(form.phone_number01, 'common.phone_number', { 'label_attr': { 'class': 'ec-label' }}) }}
                             </dt>
                             <dd>
-                                <div class="ec-telInput{{ has_errors(form.phone_number) ? ' error' }}">
-                                    {{ form_widget(form.phone_number) }}
-                                    {{ form_errors(form.phone_number) }}
+                                <div class="ec-telInput{% if has_errors(form.phone_number01) or has_errors(form.phone_number02) or has_errors(form.phone_number03) %} error {% endif %}">
+                                    {# feature-002 電話番号設定変更 #}
+                                    <div class="form-phonenumbers">
+                                    {{ form_widget(form.phone_number01, { attr : { placeholder : 'common.phone_number_sample01' }} ) }} -
+                                    {{ form_widget(form.phone_number02, { attr : { placeholder : 'common.phone_number_sample02' }} ) }} -
+                                    {{ form_widget(form.phone_number03, { attr : { placeholder : 'common.phone_number_sample03' }} ) }}
+                                    </div>
+                                    <div class="error-contents">
+                                    {{ form_errors(form.phone_number01) }}
+                                    {{ form_errors(form.phone_number02) }}
+                                    {{ form_errors(form.phone_number03) }}
+                                    </div>
                                 </div>
                             </dd>
                         </dl>

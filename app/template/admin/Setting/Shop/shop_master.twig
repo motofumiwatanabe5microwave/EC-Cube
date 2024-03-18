@@ -94,8 +94,16 @@
                                 <div class="col-3"><span>{{ 'admin.common.phone_number'|trans }}</span></div>
                                 <div class="col">
                                     {# feature-002 電話番号設定変更 #}
-                                    {{ form_widget(form.phone_number) }}
-                                    {{ form_errors(form.phone_number) }}
+                                    <div class="form-phonenumbers">
+                                    {{ form_widget(form.phone_number01, { attr : { placeholder : 'common.phone_number_sample01' }} ) }} -
+                                    {{ form_widget(form.phone_number02, { attr : { placeholder : 'common.phone_number_sample02' }} ) }} -
+                                    {{ form_widget(form.phone_number03, { attr : { placeholder : 'common.phone_number_sample03' }} ) }}
+                                    </div>
+                                    <div class="error-contents">
+                                    {{ form_errors(form.phone_number01) }}
+                                    {{ form_errors(form.phone_number02) }}
+                                    {{ form_errors(form.phone_number03) }}
+                                    </div>
                                 </div>
                             </div>
                             <div class="row mb-3">

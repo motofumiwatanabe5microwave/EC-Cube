@@ -113,7 +113,7 @@ class ShippingRepositoryExtension extends ShippingRepository
         if (isset($searchData['phone_number']) && StringUtil::isNotBlank($searchData['phone_number'])) {
             $tel = preg_replace('/[^0-9]/', '', $searchData['phone_number']);
             $qb
-                ->andWhere('s.phone_number LIKE :phone_number')
+                ->andWhere('CONCAT(s.phone_number01, s.phone_number02, s.phone_number03) LIKE :phone_number')
                 ->setParameter('phone_number', '%'.$tel.'%');
         }
 

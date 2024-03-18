@@ -21,7 +21,9 @@
             $('#order_address_addr02').val(data['addr02']);
             $('#order_email').val(data['email']);
             // feature-002 電話番号設定変更
-            $('#order_phone_number').val(data['phone_number']);
+            $('#order_phone_number01').val(data['phone_number01']);
+            $('#order_phone_number02').val(data['phone_number02']);
+            $('#order_phone_number03').val(data['phone_number03']);
             $('#order_company_name').val(data['company_name']);
             // モーダルを閉じる.
             $('#searchCustomerModal').modal('hide');
@@ -66,7 +68,7 @@
             <td class="text-center"><span>{{ Customer.id }}</span></td>
             <td><span>{{ Customer.name }}</span></td>
             {# feature-002 電話番号設定変更 #}
-            <td><span>{{ Customer.phone_number }}</span></td>
+            <td><span>{{ Customer.phone_number01 }}{{ Customer.phone_number02 }}{{ Customer.phone_number03 }}</span></td>
             <td><span>{{ Customer.email }}</span></td>
             <td>
                 <div class="row justify-content-end pe-2">

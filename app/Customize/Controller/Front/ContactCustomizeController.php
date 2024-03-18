@@ -69,7 +69,9 @@ class ContactCustomizeController extends AbstractFrontCustomizeController
                     'addr01' => $user->getAddr01(),
                     'addr02' => $user->getAddr02(),
                     // feature-002 電話番号設定変更
-                    'phone_number' => $user->getPhoneNumber(),
+                    'phone_number01' => $user->getPhoneNumber01(),
+                    'phone_number02' => $user->getPhoneNumber02(),
+                    'phone_number03' => $user->getPhoneNumber03(),
                     'email' => $user->getEmail(),
                 ]
             );

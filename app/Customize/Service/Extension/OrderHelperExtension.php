@@ -30,7 +30,9 @@ class OrderHelperExtension extends OrderHelper
             ->setCompanyName($data['company_name'])
             ->setEmail($data['email'])
             // feature-002 電話番号設定変更
-            ->setPhonenumber($data['phone_number'])
+            ->setPhonenumber01($data['phone_number01'])
+            ->setPhonenumber02($data['phone_number02'])
+            ->setPhonenumber03($data['phone_number03'])
             ->setPostalcode($data['postal_code'])
             ->setAddr01($data['addr01'])
             ->setAddr02($data['addr02']);
@@ -57,7 +59,10 @@ class OrderHelperExtension extends OrderHelper
             ->setKana01($Customer->getKana01())
             ->setKana02($Customer->getKana02())
             ->setCompanyName($Customer->getCompanyName())
-            ->setPhoneNumber($Customer->getPhoneNumber())
+            // feature-002 電話番号設定変更
+            ->setPhoneNumber01($Customer->getPhoneNumber01())
+            ->setPhoneNumber02($Customer->getPhoneNumber02())
+            ->setPhoneNumber03($Customer->getPhoneNumber03())
             ->setPostalCode($Customer->getPostalCode())
             ->setPref($Customer->getPref())
             ->setAddr01($Customer->getAddr01())

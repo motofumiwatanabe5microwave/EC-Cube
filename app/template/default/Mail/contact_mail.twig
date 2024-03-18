@@ -22,7 +22,7 @@
 
 住所：{% if data.pref.name is defined %} {{ data.pref.name }}{% endif %}{{ data.addr01 }}{{ data.addr02 }}
 {# feature-002 電話番号設定変更 #}
-電話番号：{{ data.phone_number }}
+電話番号：{{ data.phone_number01 }} - {{ data.phone_number02 }} - {{ data.phone_number03 }}
 メールアドレス：{{ data.email }}
 お問い合わせ内容：
 

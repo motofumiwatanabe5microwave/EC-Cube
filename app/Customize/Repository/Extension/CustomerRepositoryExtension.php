@@ -119,7 +119,7 @@ class CustomerRepositoryExtension extends CustomerRepository
         if (isset($searchData['phone_number']) && StringUtil::isNotBlank($searchData['phone_number'])) {
             $tel = preg_replace('/[^0-9]/', '', $searchData['phone_number']);
             $qb
-                ->andWhere('c.phone_number LIKE :phone_number')
+                ->andWhere('CONCAT(c.phone_number01, c.phone_number02, c.phone_number03) LIKE :phone_number')
                 ->setParameter('phone_number', '%' . $tel . '%');
         }
 

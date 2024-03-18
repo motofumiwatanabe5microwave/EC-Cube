@@ -54,7 +54,7 @@
                             郵便番号：〒{{ Order.postal_code }}<br/>
                             住所：{{ Order.Pref.name }}{{ Order.addr01 }}{{ Order.addr02 }}<br/>
                             {# feature-002 電話番号設定変更 #}
-                            電話番号：{{ Order.phone_number }}<br/>
+                            電話番号：{{ Order.phone_number01 }} - {{ Order.phone_number02 }} - {{ Order.phone_number03 }}<br/>
                             <br/>
                             <hr style="border-top: 3px double #8c8b8b;">
                             　配送情報<br/>
@@ -67,7 +67,7 @@
                             郵便番号：〒{{ Shipping.postal_code }}<br/>
                             住所：{{ Shipping.Pref.name }}{{ Shipping.addr01 }}{{ Shipping.addr02 }}<br/>
                             {# feature-002 電話番号設定変更 #}
-                            電話番号：{{ Shipping.phone_number }}<br/>
+                            電話番号：{{ Shipping.phone_number01 }} - {{ Shipping.phone_number02 }} - {{ Shipping.phone_number03 }}<br/>
                             <br/>
                             配送方法：{{ Shipping.shipping_delivery_name }}<br/>
                             お届け日：{{ Shipping.shipping_delivery_date is empty ? '指定なし' : Shipping.shipping_delivery_date|date_day }}<br/>

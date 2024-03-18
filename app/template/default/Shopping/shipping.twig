@@ -47,7 +47,7 @@
                                 <div>{{ Address.name01 }}&nbsp;{{ Address.name02 }}</div>
                                 <div>〒{{ Address.postal_code }} {{ Address.Pref }}{{ Address.addr01 }}{{ Address.addr02 }}</div>
                                 {# feature-002 電話番号設定変更 #}
-                                <div>{{ Address.phone_number }}</div>
+                                <div>{{ Address.phone_number01 }} - {{ Address.phone_number02 }} - {{ Address.phone_number03 }}</div>
                             </div>
                         </div>
                         {% endfor %}

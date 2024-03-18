@@ -391,8 +391,16 @@
                                                 </label>
                                                 <div class="col">
                                                     {# feature-002 電話番号設定変更 #}
-                                                    {{ form_widget(shippingForm.phone_number) }}
-                                                    {{ form_errors(shippingForm.phone_number) }}
+                                                    <div class="form-phonenumbers">
+                                                    {{ form_widget(shippingForm.phone_number01, { attr : { placeholder : 'common.phone_number_sample01' }} ) }} -
+                                                    {{ form_widget(shippingForm.phone_number02, { attr : { placeholder : 'common.phone_number_sample02' }} ) }} -
+                                                    {{ form_widget(shippingForm.phone_number03, { attr : { placeholder : 'common.phone_number_sample03' }} ) }}
+                                                    </div>
+                                                    <div class="error-contents">
+                                                    {{ form_errors(shippingForm.phone_number01) }}
+                                                    {{ form_errors(shippingForm.phone_number02) }}
+                                                    {{ form_errors(shippingForm.phone_number03) }}
+                                                    </div>
                                                 </div>
                                             </div>
 

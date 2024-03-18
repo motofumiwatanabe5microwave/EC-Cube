@@ -27,14 +27,14 @@ class EntryCustomizeType extends AbstractTypeExtension
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         // feature-002 電話番号設定変更
-        // $builder->add('phone_number01', PhoneNumberType::class, [
-        //         'required' => true,
-        // ])->add('phone_number02', PhoneNumberType::class, [
-        //     'required' => true,
-        // ])->add('phone_number03', PhoneNumberType::class, [
-        //     'required' => true,
-        // ])
-        // ->remove('phone_number');
+        $builder->add('phone_number01', PhoneNumberType::class, [
+            'required' => true,
+        ])->add('phone_number02', PhoneNumberType::class, [
+            'required' => true,
+        ])->add('phone_number03', PhoneNumberType::class, [
+            'required' => true,
+        ])
+        ->remove('phone_number');
     }
 
     /**

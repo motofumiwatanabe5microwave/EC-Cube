@@ -131,7 +131,9 @@
                 $('#order_Shipping_address_addr01').val($('#order_address_addr01').val());
                 $('#order_Shipping_address_addr02').val($('#order_address_addr02').val());
                 $('#order_Shipping_email').val($('#order_email').val());
-                $('#order_Shipping_phone_number').val($('#order_phone_number').val());
+                $('#order_Shipping_phone_number').val($('#order_phone_number01').val());
+                $('#order_Shipping_phone_number').val($('#order_phone_number02').val());
+                $('#order_Shipping_phone_number').val($('#order_phone_number03').val());
                 $('#order_Shipping_company_name').val($('#order_company_name').val());
             });
 
@@ -463,8 +465,16 @@
                                         {# feature-002 電話番号設定変更 #}
                                             <label class="col-3 col-form-label">{{ 'admin.common.phone_number'|trans }}<span class="badge bg-primary ms-1">{{ 'admin.common.required'|trans }}</span></label>
                                             <div class="col">
-                                                {{ form_widget(form.phone_number) }}
-                                                {{ form_errors(form.phone_number) }}
+                                                <div class="form-phonenumbers">
+                                                {{ form_widget(form.phone_number01, { attr : { placeholder : 'common.phone_number_sample01' }} ) }} -
+                                                {{ form_widget(form.phone_number02, { attr : { placeholder : 'common.phone_number_sample02' }} ) }} -
+                                                {{ form_widget(form.phone_number03, { attr : { placeholder : 'common.phone_number_sample03' }} ) }}
+                                                </div>
+                                                <div class="error-contents">
+                                                {{ form_errors(form.phone_number01) }}
+                                                {{ form_errors(form.phone_number02) }}
+                                                {{ form_errors(form.phone_number03) }}
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="row mb-3">
@@ -512,7 +522,7 @@
                                             {% set shipping_name = shipping.full_name ~ '(' ~ shipping.full_name_kana ~ ')' ~ (shipping.company_name is not null ? ' ' ~ shipping.company_name : '') %}
                                             {% set shipping_addr = 'admin.common.postal_symbol'|trans ~ shipping.postal_code ~ ' ' ~ shipping.pref ~ shipping.addr01 ~ shipping.addr02 %}
                                             {% set shipping_date = shipping.shipping_date is not null ? shipping.shipping_date|date_day : '' %}
-                                            {{ shipping_name }} {{ shipping_addr }} {{ shipping.phone_number }} {{ shipping_date }}
+                                            {{ shipping_name }} {{ shipping_addr }} {{ shipping.phone_number01 }}{{ shipping.phone_number02 }}{{ shipping.phone_number03 }} {{ shipping_date }}
                                         </div>
                                     {% endfor %}
                                 {% else %}
@@ -600,8 +610,16 @@
                                                 <label class="col-3 col-form-label">{{ 'admin.common.phone_number'|trans }}<span class="badge bg-primary ms-1">{{ 'admin.common.required'|trans }}</span></label>
                                                 <div class="col">
                                                     {# feature-002 電話番号設定変更 #}
-                                                    {{ form_widget(form.Shipping.phone_number) }}
-                                                    {{ form_errors(form.Shipping.phone_number) }}
+                                                    <div class="form-phonenumbers">
+                                                    {{ form_widget(form.Shipping.phone_number01, { attr : { placeholder : 'common.phone_number_sample01' }} ) }} -
+                                                    {{ form_widget(form.Shipping.phone_number02, { attr : { placeholder : 'common.phone_number_sample02' }} ) }} -
+                                                    {{ form_widget(form.Shipping.phone_number03, { attr : { placeholder : 'common.phone_number_sample03' }} ) }}
+                                                    </div>
+                                                    <div class="error-contents">
+                                                    {{ form_errors(form.Shipping.phone_number01) }}
+                                                    {{ form_errors(form.Shipping.phone_number02) }}
+                                                    {{ form_errors(form.Shipping.phone_number03) }}
+                                                    </div>
                                                 </div>
                                             </div>
 

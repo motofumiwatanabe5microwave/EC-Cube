@@ -100,13 +100,15 @@ class EditCustomizeController extends AbstractController
             $data = [];
             $formatName = '%s%s(%s%s)';
             foreach ($Customers as $Customer) {
-                // feature-002 電話番号設定変更
                 $data[] = [
                     'id' => $Customer->getId(),
                     'name' => sprintf($formatName, $Customer->getName01(), $Customer->getName02(),
                         $Customer->getKana01(),
                         $Customer->getKana02()),
-                    'phone_number' => $Customer->getPhoneNumber(),
+                    // feature-002 電話番号設定変更
+                    'phone_number01' => $Customer->getPhoneNumber01(),
+                    'phone_number02' => $Customer->getPhoneNumber02(),
+                    'phone_number03' => $Customer->getPhoneNumber03(),
                     'email' => $Customer->getEmail(),
                 ];
             }
@@ -176,7 +178,9 @@ class EditCustomizeController extends AbstractController
                 'addr02' => $Customer->getAddr02(),
                 'email' => $Customer->getEmail(),
                 // feature-002 電話番号設定変更
-                'phone_number' => $Customer->getPhoneNumber(),
+                'phone_number01' => $Customer->getPhoneNumber01(),
+                'phone_number02' => $Customer->getPhoneNumber02(),
+                'phone_number03' => $Customer->getPhoneNumber03(),
                 'company_name' => $Customer->getCompanyName(),
             ];
 

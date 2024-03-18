@@ -163,7 +163,7 @@ if (!class_exists('\Eccube\Entity\CustomerAddress')) {
          * @var string|null
          * feature-002 電話番号設定変更
          *
-         * @ORM\Column(name="phone_number01", type="string", length=4, nullable=true)
+         * @ORM\Column(name="phone_number01", type="string", length=5, nullable=true)
          */
         private $phone_number01;
         
@@ -171,7 +171,7 @@ if (!class_exists('\Eccube\Entity\CustomerAddress')) {
          * @var string|null
          * feature-002 電話番号設定変更
          *
-         * @ORM\Column(name="phone_number02", type="string", length=4, nullable=true)
+         * @ORM\Column(name="phone_number02", type="string", length=5, nullable=true)
          */
         private $phone_number02;
 
@@ -179,7 +179,7 @@ if (!class_exists('\Eccube\Entity\CustomerAddress')) {
          * @var string|null
          * feature-002 電話番号設定変更
          *
-         * @ORM\Column(name="phone_number03", type="string", length=4, nullable=true)
+         * @ORM\Column(name="phone_number03", type="string", length=5, nullable=true)
          */
         private $phone_number03;
 
@@ -484,8 +484,8 @@ if (!class_exists('\Eccube\Entity\CustomerAddress')) {
          */
         public function getPhoneNumber()
         {
-            $phone_number = self::getPhoneNumber01();
-            $phone_number .= self::getPhoneNumber02();
+            $phone_number = self::getPhoneNumber01().' - ';
+            $phone_number .= self::getPhoneNumber02().' - ';
             $phone_number .= self::getPhoneNumber03();
             return $phone_number;
         }

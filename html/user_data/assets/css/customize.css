@@ -16,4 +16,9 @@
       max-width: 1150px;
       padding: 0 20px;
     }
+
+    .form-phonenumbers input {
+      width: 6em;
+      display: inline-block;
+  }
 }
