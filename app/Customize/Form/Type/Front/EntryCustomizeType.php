@@ -7,6 +7,13 @@ use Eccube\Form\Type\Front\EntryType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\AbstractTypeExtension;
 
+/**
+ * 会員登録Form カスタマイズクラス
+ *
+ * @category   front
+ * @author     m.watanabe
+ * @version    1.0.0
+ */
 class EntryCustomizeType extends AbstractTypeExtension
 {
     /**

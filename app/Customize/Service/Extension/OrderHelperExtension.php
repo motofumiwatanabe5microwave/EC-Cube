@@ -5,6 +5,13 @@ use Eccube\Entity\Customer;
 use Eccube\Entity\Shipping;
 use Eccube\Service\OrderHelper;
 
+/**
+ * OrderHelper Customize
+ *
+ * @category   front, admin
+ * @author     m.watanabe
+ * @version    1.0.0
+ */
 class OrderHelperExtension extends OrderHelper
 {
     /**

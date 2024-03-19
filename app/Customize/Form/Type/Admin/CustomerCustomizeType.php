@@ -7,6 +7,13 @@ use Eccube\Form\Type\Admin\CustomerType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\AbstractTypeExtension;
 
+/**
+ * 会員情報入力Form カスタマイズクラス
+ *
+ * @category   admin
+ * @author     m.watanabe
+ * @version    1.0.0
+ */
 class CustomerCustomizeType extends AbstractTypeExtension
 {
     /**

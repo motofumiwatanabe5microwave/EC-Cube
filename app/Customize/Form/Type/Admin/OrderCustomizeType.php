@@ -8,6 +8,13 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\AbstractTypeExtension;
 use Symfony\Component\Validator\Constraints as Assert;
 
+/**
+ * 受注情報入力Form カスタマイズクラス
+ *
+ * @category   admin
+ * @author     m.watanabe
+ * @version    1.0.0
+ */
 class OrderCustomizeType extends AbstractTypeExtension
 {
     /**

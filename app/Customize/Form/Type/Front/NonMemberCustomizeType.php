@@ -7,6 +7,13 @@ use Eccube\Form\Type\Front\NonMemberType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\AbstractTypeExtension;
 
+/**
+ * 非会員情報入力Form カスタマイズクラス
+ *
+ * @category   front
+ * @author     m.watanabe
+ * @version    1.0.0
+ */
 class NonMemberCustomizeType extends AbstractTypeExtension
 {
     /**

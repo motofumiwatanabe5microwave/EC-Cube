@@ -7,6 +7,13 @@ use Eccube\Form\Type\Front\ContactType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\AbstractTypeExtension;
 
+/**
+ * お問い合わせ情報入力Form カスタマイズクラス
+ *
+ * @category   front
+ * @author     m.watanabe
+ * @version    1.0.0
+ */
 class ContactCustomizeType extends AbstractTypeExtension
 {
     /**

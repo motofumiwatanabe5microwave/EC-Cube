@@ -12,6 +12,13 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * 受注情報 カスタマイズコントローラー
+ *
+ * @category   admin
+ * @author     m.watanabe
+ * @version    1.0.0
+ */
 class EditCustomizeController extends AbstractController
 {
 
