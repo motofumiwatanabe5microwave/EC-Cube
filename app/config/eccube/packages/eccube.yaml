@@ -110,7 +110,8 @@ parameters:
     eccube_product_order_newer: 2
     eccube_product_order_price_higher: 3
     eccube_price_max: 2147483647
-    eccube_tel_len_max: 4 
+    #feature-002 電話番号設定変更
+    eccube_tel_len_max: 5 
     eccube_postal_code: 8
     eccube_password_min_len: 12
     eccube_password_max_len: 50
