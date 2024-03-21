@@ -60,8 +60,7 @@ class SearchOrderCustomizeType extends AbstractTypeExtension
                     'message' => 'form_error.graph_and_hyphen_only',
                 ]),
             ],
-        ])
-        ->remove('phone_number');
+        ]);
     }
 
     /**

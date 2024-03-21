@@ -131,9 +131,9 @@
                 $('#order_Shipping_address_addr01').val($('#order_address_addr01').val());
                 $('#order_Shipping_address_addr02').val($('#order_address_addr02').val());
                 $('#order_Shipping_email').val($('#order_email').val());
-                $('#order_Shipping_phone_number').val($('#order_phone_number01').val());
-                $('#order_Shipping_phone_number').val($('#order_phone_number02').val());
-                $('#order_Shipping_phone_number').val($('#order_phone_number03').val());
+                $('#order_Shipping_phone_number01').val($('#order_phone_number01').val());
+                $('#order_Shipping_phone_number02').val($('#order_phone_number02').val());
+                $('#order_Shipping_phone_number03').val($('#order_phone_number03').val());
                 $('#order_Shipping_company_name').val($('#order_company_name').val());
             });
 
@@ -522,7 +522,7 @@
                                             {% set shipping_name = shipping.full_name ~ '(' ~ shipping.full_name_kana ~ ')' ~ (shipping.company_name is not null ? ' ' ~ shipping.company_name : '') %}
                                             {% set shipping_addr = 'admin.common.postal_symbol'|trans ~ shipping.postal_code ~ ' ' ~ shipping.pref ~ shipping.addr01 ~ shipping.addr02 %}
                                             {% set shipping_date = shipping.shipping_date is not null ? shipping.shipping_date|date_day : '' %}
-                                            {{ shipping_name }} {{ shipping_addr }} {{ shipping.phone_number01 }}{{ shipping.phone_number02 }}{{ shipping.phone_number03 }} {{ shipping_date }}
+                                            {{ shipping_name }} {{ shipping_addr }} {{ shipping.phone_number01 }} - {{ shipping.phone_number02 }} - {{ shipping.phone_number03 }} {{ shipping_date }}
                                         </div>
                                     {% endfor %}
                                 {% else %}

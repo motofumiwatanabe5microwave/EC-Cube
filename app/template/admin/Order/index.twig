@@ -261,17 +261,8 @@
                 <div class="row">
                     <div class="col">
                         <label class="col-form-label">{{ 'admin.common.phone_number'|trans }}</label>
-                        {# feature-002 電話番号設定変更 #}
-                        <div class="form-phonenumbers">
-                        {{ form_widget(searchForm.phone_number01, { attr : { placeholder : 'common.phone_number_sample01' }} ) }} -
-                        {{ form_widget(searchForm.phone_number02, { attr : { placeholder : 'common.phone_number_sample02' }} ) }} -
-                        {{ form_widget(searchForm.phone_number03, { attr : { placeholder : 'common.phone_number_sample03' }} ) }}
-                        </div>
-                        <div class="error-contents">
-                        {{ form_errors(searchForm.phone_number01) }}
-                        {{ form_errors(searchForm.phone_number02) }}
-                        {{ form_errors(searchForm.phone_number03) }}
-                        </div>
+                        {{ form_widget(searchForm.phone_number, { attr : { placeholder : 'common.phone_number' }} ) }} 
+                        {{ form_errors(searchForm.phone_number) }}
                     </div>
                     <div class="col">
                         <label class="col-form-label">{{ 'admin.order.delivery_date'|trans }}</label>
