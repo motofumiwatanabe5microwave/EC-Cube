@@ -1,0 +1,7 @@
+/* カスタマイズ用CSS */
+
+/** 電話番号用調整 **/
+.form-phonenumbers input {
+  width: 6em;
+  display: inline-block;
+}

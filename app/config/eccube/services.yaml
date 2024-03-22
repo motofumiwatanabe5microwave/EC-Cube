@@ -216,3 +216,20 @@ services:
 
     Eccube\EventListener\RateLimiterListener:
         arguments: [ !tagged_locator { tag: 'eccube_rate_limiter' } ]
+
+    #feature-002 電話番号設定変更
+    Customize\Repository\Extension\CustomerRepositoryExtension:
+        autowire: true
+        decorates: Eccube\Repository\CustomerRepository
+
+    Customize\Repository\Extension\OrderRepositoryExtension:
+        autowire: true
+        decorates: Eccube\Repository\OrderRepository
+
+    Customize\Repository\Extension\ShippingRepositoryExtension:
+        autowire: true
+        decorates: Eccube\Repository\ShippingRepository
+
+    Customize\Service\Extension\OrderHelperExtension:
+        autowire: true
+        decorates: Eccube\Service\OrderHelper

@@ -1,0 +1,32 @@
+/* カスタマイズ用CSS */
+@media only screen and (min-width: 768px){
+    /** Header 固定**/
+    header {
+        padding-top: 76px;
+    }
+    
+    header .ec-headerNaviRole {
+      position: fixed;
+      z-index: 999;
+      width: 100%;
+      left: 50%;
+      top:0;
+      background-color: white;
+      transform: translateX(-50%);
+      max-width: 1150px;
+      padding: 0 20px;
+    }
+}
+
+/** 電話番号用調整 **/
+.form-phonenumbers input {
+  width: 6em;
+  display: inline-block;
+}
+
+.form-phonenumbers + .error-contents .ec-errorMessage {
+  margin-top: 0.15em;
+}
+.form-phonenumbers + .error-contents .ec-errorMessage:not(:last-child) {
+  margin-bottom: 0.15em;
+}

@@ -1,3 +1,8 @@
 In the Customize directory you can place controllers, entities, repositories ...etc for customization.
 
 Customizeディレクトリには、カスタマイズ用のコントローラやエンティティ、レポジトリなどを配置できます。
+
+feature-002: Entity及びimportcsv取り扱い
+Customizeディレクトリ内で拡張は行えるが既存カラム削除が行えない。
+電話番号を「1項目」から「3項目」に変更した際にEntity及びimportcsvディレクトリ内のデータ修正
+コア側で修正を実施となるためEC-CUBEバージョンアップの際は別途取込が必要となる可能性あり。

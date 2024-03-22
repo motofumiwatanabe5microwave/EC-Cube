@@ -10,6 +10,13 @@ use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\Form\FormBuilderInterface;
 
+/**
+ * パスワード再設定入力Form
+ *
+ * @category   front
+ * @author     m.watanabe
+ * @version    1.0.0
+ */
 class CustomerResettingType extends AbstractType
 {
     /**

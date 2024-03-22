@@ -103,12 +103,31 @@ if (!class_exists('\Eccube\Entity\Customer')) {
          */
         private $email;
 
+        // feature-002 電話番号設定変更　phone_number削除
+        // feature-002 電話番号設定変更　phone_number01~phone_number03追加
         /**
          * @var string|null
+         * feature-002 電話番号設定変更
          *
-         * @ORM\Column(name="phone_number", type="string", length=14, nullable=true)
+         * @ORM\Column(name="phone_number01", type="string", length=5, nullable=true)
          */
-        private $phone_number;
+        private $phone_number01;
+        
+        /**
+         * @var string|null
+         * feature-002 電話番号設定変更
+         *
+         * @ORM\Column(name="phone_number02", type="string", length=5, nullable=true)
+         */
+        private $phone_number02;
+
+        /**
+         * @var string|null
+         * feature-002 電話番号設定変更
+         *
+         * @ORM\Column(name="phone_number03", type="string", length=5, nullable=true)
+         */
+        private $phone_number03;
 
         /**
          * @var \DateTime|null
@@ -568,28 +587,98 @@ if (!class_exists('\Eccube\Entity\Customer')) {
             return $this->email;
         }
 
+        // feature-002 電話番号設定変更
+        // phone_number01~phone_number03用のメソッド追加・取得メソッド改修
         /**
-         * Set phone_number.
+         * Set phone_number01.
+         * feature-002 電話番号設定変更
          *
-         * @param string|null $phone_number
+         * @param string|null $phone_number01
          *
          * @return Customer
          */
-        public function setPhoneNumber($phone_number = null)
+        public function setPhoneNumber01($phone_number01 = null)
         {
-            $this->phone_number = $phone_number;
+            $this->phone_number01 = $phone_number01;
+
+            return $this;
+        }
+
+        /**
+         * Set phone_number02.
+         * feature-002 電話番号設定変更
+         *
+         * @param string|null $phone_number02
+         *
+         * @return Customer
+         */
+        public function setPhoneNumber02($phone_number02 = null)
+        {
+            $this->phone_number02 = $phone_number02;
+
+            return $this;
+        }
+
+        /**
+         * Set phone_number03.
+         * feature-002 電話番号設定変更
+         *
+         * @param string|null $phone_number03
+         *
+         * @return Customer
+         */
+        public function setPhoneNumber03($phone_number03 = null)
+        {
+            $this->phone_number03 = $phone_number03;
 
             return $this;
         }
 
         /**
          * Get phone_number.
+         * feature-002 電話番号設定変更
          *
          * @return string|null
          */
         public function getPhoneNumber()
         {
-            return $this->phone_number;
+            $phone_number = self::getPhoneNumber01().' - ';
+            $phone_number .= self::getPhoneNumber02().' - ';
+            $phone_number .= self::getPhoneNumber03();
+            return $phone_number;
+        }
+
+        /**
+         * Get phone_number.
+         * feature-002 電話番号設定変更
+         *
+         * @return string|null
+         */
+        public function getPhoneNumber01()
+        {
+            return $this->phone_number01;
+        }
+
+        /**
+         * Get phone_number.
+         * feature-002 電話番号設定変更
+         *
+         * @return string|null
+         */
+        public function getPhoneNumber02()
+        {
+            return $this->phone_number02;
+        }
+
+        /**
+         * Get phone_number.
+         * feature-002 電話番号設定変更
+         *
+         * @return string|null
+         */
+        public function getPhoneNumber03()
+        {
+            return $this->phone_number03;
         }
 
         /**
