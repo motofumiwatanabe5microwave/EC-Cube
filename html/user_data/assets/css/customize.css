@@ -16,10 +16,17 @@
       max-width: 1150px;
       padding: 0 20px;
     }
+}
 
-    /** 電話番号用調整 **/
-    .form-phonenumbers input {
-      width: 6em;
-      display: inline-block;
-  }
+/** 電話番号用調整 **/
+.form-phonenumbers input {
+  width: 6em;
+  display: inline-block;
+}
+
+.form-phonenumbers + .error-contents .ec-errorMessage {
+  margin-top: 0.15em;
+}
+.form-phonenumbers + .error-contents .ec-errorMessage:not(:last-child) {
+  margin-bottom: 0.15em;
 }
